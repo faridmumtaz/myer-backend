@@ -10,6 +10,11 @@ const {
 } = require("../controllers/expense");
 
 const router = express.Router();
+
+router
+  .route("/")
+  .get((req, res) => res.status(200).json({ message: "hello folks" }));
+
 router
   .route("/expenses")
   .post(addExpense)
@@ -19,8 +24,8 @@ router
 
 router.route("/expense/:id").get(getExpense);
 
-router.route("/getCurrentMonthExpenses").get(getCurrentMonthExpenses)
+router.route("/getCurrentMonthExpenses").get(getCurrentMonthExpenses);
 
-router.route("/getLastMonthExpenses").get(getLastMonthExpenses)
+router.route("/getLastMonthExpenses").get(getLastMonthExpenses);
 
 module.exports = router;
